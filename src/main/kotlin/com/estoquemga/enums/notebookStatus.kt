@@ -6,4 +6,5 @@ enum class notebookStatus {
     SAIU,
     DESCARTE,
     DELETADO
+
 }
