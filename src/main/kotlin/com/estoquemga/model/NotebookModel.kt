@@ -1,7 +1,9 @@
 package com.estoquemga.model
 
+import com.estoquemga.enums.notebookStatus
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
+import jakarta.persistence.Enumerated
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
@@ -17,11 +19,8 @@ data class NotebookModel(
 
     @Column var modelo: String,
 
-    @Column var situacao: String,
+    @Column @Enumerated var situacao: notebookStatus,
 
     @Column var numeroChamado: String
-) {
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-}
+)
 
