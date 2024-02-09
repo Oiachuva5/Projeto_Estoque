@@ -1,6 +1,6 @@
 package com.estoquemga.enums
 
-enum class notebookStatus {
+enum class NotebookStatus {
     ESTOQUE,
     MANUTENCAO,
     SAIU,

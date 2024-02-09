@@ -1,5 +1,15 @@
 CREATE SCHEMA estoque;
 
+CREATE TABLE customer
+(
+    id           INT PRIMARY KEY AUTO_INCREMENT,
+    nomeCompleto VARCHAR(255) NOT NULL,
+    login        VARCHAR(50)  NOT NULL,
+    email        VARCHAR(255) NOT NULL,
+    senha        VARCHAR(255) NOT NULL,
+    status       VARCHAR(8)   NOT NULL
+);
+
 CREATE TABLE notebook
 (
     hostname      VARCHAR(11) PRIMARY KEY NOT NULL,

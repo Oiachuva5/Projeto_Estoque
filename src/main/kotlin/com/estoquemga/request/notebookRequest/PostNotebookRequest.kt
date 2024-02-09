@@ -1,5 +1,7 @@
 package com.estoquemga.request.notebookRequest
 
+import com.estoquemga.enums.NotebookStatus
+
 data class PostNotebookRequest(
 
     var hostname: String,
@@ -10,7 +12,7 @@ data class PostNotebookRequest(
 
     var modelo: String,
 
-    var situacao: String,
+    var situacao: NotebookStatus,
 
     var numeroChamado: String
 ) {
