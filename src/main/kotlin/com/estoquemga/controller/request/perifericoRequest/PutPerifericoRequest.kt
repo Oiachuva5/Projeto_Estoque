@@ -1,4 +1,4 @@
-package com.estoquemga.request.perifericoRequest
+package com.estoquemga.controller.request.perifericoRequest
 
 data class PutPerifericoRequest(
     var nomeItem: String,

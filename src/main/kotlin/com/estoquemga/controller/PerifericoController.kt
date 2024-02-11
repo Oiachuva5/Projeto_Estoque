@@ -4,9 +4,9 @@ import com.estoquemga.extension.toPerifericoModel
 import com.estoquemga.extension.toSaidaPerifericoModel
 import com.estoquemga.model.PerifericoModel
 import com.estoquemga.model.SaidaPerifericoModel
-import com.estoquemga.request.perifericoRequest.PostPerifericoRequest
-import com.estoquemga.request.perifericoRequest.PutPerifericoRequest
-import com.estoquemga.request.saidaPerifericoRequest.PostSaidaPerifericoRequest
+import com.estoquemga.controller.request.perifericoRequest.PostPerifericoRequest
+import com.estoquemga.controller.request.perifericoRequest.PutPerifericoRequest
+import com.estoquemga.controller.request.saidaPerifericoRequest.PostSaidaPerifericoRequest
 import com.estoquemga.service.PerifericoService
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping

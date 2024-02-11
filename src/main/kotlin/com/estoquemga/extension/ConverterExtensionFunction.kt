@@ -3,11 +3,11 @@ package com.estoquemga.extension
 import com.estoquemga.model.NotebookModel
 import com.estoquemga.model.PerifericoModel
 import com.estoquemga.model.SaidaPerifericoModel
-import com.estoquemga.request.notebookRequest.PostNotebookRequest
-import com.estoquemga.request.perifericoRequest.PostPerifericoRequest
-import com.estoquemga.request.notebookRequest.PutNotebookRequest
-import com.estoquemga.request.perifericoRequest.PutPerifericoRequest
-import com.estoquemga.request.saidaPerifericoRequest.PostSaidaPerifericoRequest
+import com.estoquemga.controller.request.notebookRequest.PostNotebookRequest
+import com.estoquemga.controller.request.perifericoRequest.PostPerifericoRequest
+import com.estoquemga.controller.request.notebookRequest.PutNotebookRequest
+import com.estoquemga.controller.request.perifericoRequest.PutPerifericoRequest
+import com.estoquemga.controller.request.saidaPerifericoRequest.PostSaidaPerifericoRequest
 
 fun PostNotebookRequest.toNotebookModel(): NotebookModel {
     return NotebookModel(

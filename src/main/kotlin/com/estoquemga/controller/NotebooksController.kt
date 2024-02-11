@@ -8,13 +8,14 @@ import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.bind.annotation.RestController
-import com.estoquemga.request.notebookRequest.PostNotebookRequest
-import com.estoquemga.request.notebookRequest.PutNotebookRequest
+import com.estoquemga.controller.request.notebookRequest.PostNotebookRequest
+import com.estoquemga.controller.request.notebookRequest.PutNotebookRequest
 import com.estoquemga.service.NotebookService
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestParam
 
 @RestController
 @RequestMapping("notebooks")
@@ -39,7 +40,7 @@ class NotebooksController(
 
     @GetMapping("/{hostname}")
     @ResponseStatus(HttpStatus.FOUND)
-    fun filterObject(@RequestBody hostname: String?) {
+    fun filterObject(@RequestParam hostname: String?) {
         notebookService.filterObject(hostname)
     }
 

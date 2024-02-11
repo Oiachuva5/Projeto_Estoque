@@ -1,4 +1,4 @@
-package com.estoquemga.request.customerRequest
+package com.estoquemga.controller.request.customerRequest
 
 class PostCustomerRequest(
     var nomeCompleto: String,
