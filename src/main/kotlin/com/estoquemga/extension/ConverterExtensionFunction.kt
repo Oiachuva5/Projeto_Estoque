@@ -50,17 +50,3 @@ fun PostSaidaPerifericoRequest.toSaidaPerifericoModel(): SaidaPerifericoModel {
     )
 
 }
-//hostname: String,
-//patrimonio: Int?,
-//serialNumber: String,
-//modelo: String,
-//situacao: String,
-//numeroChamado: String
-
-
-//nomeItem: String,
-//quantidade: Int
-
-
-//nomeItem: String,
-//numeroChamado: String
