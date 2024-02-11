@@ -1,4 +1,4 @@
-package com.estoquemga.request.saidaPerifericoRequest
+package com.estoquemga.controller.request.saidaPerifericoRequest
 
 data class PostSaidaPerifericoRequest(
     var nomeItem: String,

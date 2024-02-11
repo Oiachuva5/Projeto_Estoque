@@ -1,4 +1,4 @@
-package com.estoquemga.request.notebookRequest
+package com.estoquemga.controller.request.notebookRequest
 
 import com.estoquemga.enums.NotebookStatus
 

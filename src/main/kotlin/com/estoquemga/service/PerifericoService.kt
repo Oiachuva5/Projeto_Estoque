@@ -12,8 +12,8 @@ import org.springframework.stereotype.Service
 
 @Service
 @Transactional
-class PerifericoService() {
-    //Entrada Periféricos
+class PerifericoService {
+
     @Autowired
     lateinit var saidaPerifericosRepository: SaidaPerifericoRepository
     @Autowired
