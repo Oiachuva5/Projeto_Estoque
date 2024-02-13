@@ -5,7 +5,7 @@ enum class Errors(val code: String, val message: String) {
     OPE001("OPE-001", "Invalid Request"),
 
     //Customer
-
+    CE001("CE-001", "Customer não existe"),
     //Notebook
 
     //Periferico
