@@ -25,8 +25,8 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
-    implementation("org.flywaydb:flyway-core:10.0.0")
-    implementation("org.jacoco:jacoco-maven-plugin:0.8.10")
+    implementation("org.springframework.boot:spring-boot-starter-validation")
+//    implementation("org.jacoco:jacoco-maven-plugin:0.8.10")
 
 
     runtimeOnly("com.mysql:mysql-connector-j")
