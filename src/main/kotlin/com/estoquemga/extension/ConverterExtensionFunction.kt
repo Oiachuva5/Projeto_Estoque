@@ -11,6 +11,7 @@ import com.estoquemga.controller.request.notebookRequest.PutNotebookRequest
 import com.estoquemga.controller.request.perifericoRequest.PutPerifericoRequest
 import com.estoquemga.controller.request.saidaPerifericoRequest.PostSaidaPerifericoRequest
 import com.estoquemga.enums.CustomerStatus
+import com.estoquemga.enums.NotebookStatus
 import com.estoquemga.model.CustomerModel
 
 fun PostCustomerRequest.toCustomerModel(): CustomerModel {
@@ -40,18 +41,18 @@ fun PostNotebookRequest.toNotebookModel(): NotebookModel {
             patrimonio = this.patrimonio,
             serialNumber = this.serialNumber,
             modelo = this.modelo,
-            situacao = this.situacao,
-            numeroChamado = this.numeroChamado
+            situacao = NotebookStatus.ESTOQUE,
+            numeroChamado = "entrou"
     )
 }
 
-fun PutNotebookRequest.toNotebookModel(hostname: String): NotebookModel {
+fun PutNotebookRequest.toNotebookModel(previousValue: NotebookModel): NotebookModel {
     return NotebookModel(
             hostname = this.hostname,
             patrimonio = this.patrimonio,
             serialNumber = this.serialNumber,
             modelo = this.modelo,
-            situacao = this.situacao,
+            situacao = previousValue.situacao,
             numeroChamado = this.numeroChamado
     )
 }

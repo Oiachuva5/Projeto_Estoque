@@ -5,7 +5,9 @@ import com.estoquemga.controller.request.customerRequest.PutCustomerRequest
 import com.estoquemga.extension.toCustomerModel
 import com.estoquemga.model.CustomerModel
 import com.estoquemga.service.CustomerService
+import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
+import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -29,12 +31,12 @@ class CustomerController(private val customerService: CustomerService) {
 
     @PostMapping("/cadastrar")
     @ResponseStatus(HttpStatus.CREATED)
-    fun create(@RequestBody customer: PostCustomerRequest){
+    fun create(@RequestBody @Valid customer: PostCustomerRequest){
         customerService.create(customer.toCustomerModel())
     }
 
     @PutMapping("/{id}")
-    fun update(@PathVariable id: Int, @RequestBody customer: PutCustomerRequest){
+    fun update(@PathVariable id: Int, @RequestBody @Valid customer: PutCustomerRequest){
         //verificar se é possivel utilizar sem mapear
 //        val updateCustomer = PutCustomerRequest(
 //                id = id,

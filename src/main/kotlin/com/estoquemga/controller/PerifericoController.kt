@@ -8,6 +8,7 @@ import com.estoquemga.controller.request.perifericoRequest.PostPerifericoRequest
 import com.estoquemga.controller.request.perifericoRequest.PutPerifericoRequest
 import com.estoquemga.controller.request.saidaPerifericoRequest.PostSaidaPerifericoRequest
 import com.estoquemga.service.PerifericoService
+import jakarta.validation.Valid
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.PutMapping
@@ -32,12 +33,12 @@ class PerifericoController(
     }
 
     @PostMapping("/cadastrar")
-    fun create(@RequestBody periferico: PostPerifericoRequest) {
+    fun create(@RequestBody @Valid periferico: PostPerifericoRequest) {
         perifericoService.create(periferico.toPerifericoModel())
     }
 
     @PostMapping("/retirada")
-    fun subtractPeriferico(@RequestBody periferico: PostSaidaPerifericoRequest) {
+    fun subtractPeriferico(@RequestBody @Valid periferico: PostSaidaPerifericoRequest) {
         perifericoService.retiradaPeriferico(periferico.toSaidaPerifericoModel())
     }
 

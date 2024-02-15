@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController
 import com.estoquemga.controller.request.notebookRequest.PostNotebookRequest
 import com.estoquemga.controller.request.notebookRequest.PutNotebookRequest
 import com.estoquemga.service.NotebookService
+import jakarta.validation.Valid
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PutMapping
@@ -34,7 +35,7 @@ class NotebooksController(
 
     @PostMapping("/cadastrar")
     @ResponseStatus(HttpStatus.CREATED)
-    fun create(@RequestBody notebooks: PostNotebookRequest) {
+    fun create(@RequestBody @Valid notebooks: PostNotebookRequest) {
         notebookService.create(notebooks.toNotebookModel())
     }
 
@@ -46,7 +47,7 @@ class NotebooksController(
 
     @PutMapping("/{hostname}")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    fun update(@PathVariable hostname: String, @RequestBody notebooks: PutNotebookRequest) {
+    fun update(@PathVariable hostname: String, @RequestBody @Valid notebooks: PutNotebookRequest) {
         notebookService.update(notebooks.toNotebookModel(hostname))
     }
 
