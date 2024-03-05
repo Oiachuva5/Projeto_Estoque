@@ -6,7 +6,9 @@ enum class Errors(val code: String, val message: String) {
 
     //Customer
     CE001("CE-001", "Customer não existe"),
+
     //Notebook
+    NE001("NE-001", "Hostname não existe"),
 
     //Periferico
     PE001("PE-001", "Item não existe"),
