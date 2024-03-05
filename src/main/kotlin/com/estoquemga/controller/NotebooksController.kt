@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.bind.annotation.RestController
 import com.estoquemga.controller.request.notebookRequest.PostNotebookRequest
 import com.estoquemga.controller.request.notebookRequest.PutNotebookRequest
+import com.estoquemga.enums.NotebookStatus
 import com.estoquemga.service.NotebookService
 import jakarta.validation.Valid
 import org.springframework.web.bind.annotation.DeleteMapping
@@ -23,20 +24,14 @@ import org.springframework.web.bind.annotation.RequestParam
 class NotebooksController(
     val notebookService: NotebookService
 ) {
-    @GetMapping("/teste")
+    @GetMapping("/health")
     fun teste(): String {
-        return "olá"
+        return "OK :)"
     }
 
     @GetMapping
-    fun getAll(hostname: String?): List<NotebookModel> {
-        return notebookService.getAll(hostname)
-    }
-
-    @PostMapping("/cadastrar")
-    @ResponseStatus(HttpStatus.CREATED)
-    fun create(@RequestBody @Valid notebooks: PostNotebookRequest) {
-        notebookService.create(notebooks.toNotebookModel())
+    fun getAll(): List<NotebookModel> {
+        return notebookService.getAll()
     }
 
     @GetMapping("/{hostname}")
@@ -45,10 +40,24 @@ class NotebooksController(
         notebookService.filterObject(hostname)
     }
 
+    @PostMapping("/cadastrar")
+    @ResponseStatus(HttpStatus.CREATED)
+    fun create(@RequestBody @Valid notebooks: PostNotebookRequest) {
+        notebookService.create(notebooks.toNotebookModel())
+    }
+
     @PutMapping("/{hostname}")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    fun update(@PathVariable hostname: String, @RequestBody @Valid notebooks: PutNotebookRequest) {
-        notebookService.update(notebooks.toNotebookModel(hostname))
+    fun update(@PathVariable hostname: String, @RequestBody @Valid notebookRequest: PutNotebookRequest) {
+        val notebook = NotebookModel(
+            hostname = hostname,
+            patrimonio = notebookRequest.patrimonio,
+            serialNumber = notebookRequest.serialNumber,
+            modelo = notebookRequest.modelo,
+            situacao = NotebookStatus.ESTOQUE,
+            numeroChamado = notebookRequest.numeroChamado
+        )
+        notebookService.update(notebook)
     }
 
     @DeleteMapping("/{hostname}")
