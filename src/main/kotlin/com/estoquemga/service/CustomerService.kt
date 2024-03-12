@@ -20,25 +20,22 @@ class CustomerService(private val repository: CustomerRepository) {
         return repository.findAll().toList()
     }
 
-    fun getObject(id: Int?): CustomerModel {
-        id?.let {
-            return repository.findById(id).get()
-        }
-        throw NotFoundException(Errors.CE001.message, Errors.CE001.code)
+    fun getObject(id: Int): CustomerModel {
+        return repository.findById(id).orElseThrow { NotFoundException(Errors.CE001.message, Errors.CE001.code) }
     }
 
     fun create(customer: CustomerModel) {
         repository.save(customer)
     }
 
-    fun update(customer: PutCustomerRequest) {
-        if (!repository.existsById(customer.id!!))
+    fun update(customer: PutCustomerRequest, id: Int) {
+        if (!repository.existsById(id!!))
             throw BadRequestException(
                 Errors.CE001.message,
                 Errors.CE001.code
             )
 
-        val customerQuery = repository.findById(customer.id!!).get()
+        val customerQuery: CustomerModel = repository.findById(id!!).get()
         val customerSave = CustomerModel(
             id = customerQuery.id,
             nomeCompleto = customer.nomeCompleto,
@@ -51,13 +48,13 @@ class CustomerService(private val repository: CustomerRepository) {
     }
 
     fun delete(id: Int) {
-        if (!repository.existsById(id))
-            throw BadRequestException(
+
+        val customer = repository.findById(id).orElseThrow {
+            NotFoundException(
                 Errors.CE001.message,
                 Errors.CE001.code
             )
-
-        val customer = repository.findById(id!!).get()
+        }
         customer.status = CustomerStatus.INATIVO
         repository.save(customer)
     }

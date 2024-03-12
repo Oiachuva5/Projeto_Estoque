@@ -28,7 +28,7 @@ class CustomerController(private val customerService: CustomerService) {
     }
 
     @GetMapping("/{id}")
-    fun getObject(@PathVariable id: Int?): CustomerModel{
+    fun getObject(@PathVariable id: Int): CustomerModel{
         return customerService.getObject(id)
     }
 
@@ -41,7 +41,7 @@ class CustomerController(private val customerService: CustomerService) {
 
     @PutMapping("/{id}")
     fun update(@PathVariable id: Int, @RequestBody @Valid customer: PutCustomerRequest){
-        customerService.update(customer)
+        customerService.update(customer, id)
     }
 
     @DeleteMapping("/{id}")
